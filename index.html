@@ -29,12 +29,25 @@
             /* Phông chữ mặc định */
             min-height: 100vh;
             /* Chiều cao tối thiểu bằng khung nhìn */
-            display: flex;
-            /* Bật flexbox */
-            justify-content: center;
-            /* Căn giữa theo trục ngang */
-            align-items: center;
-            /* Căn giữa theo trục dọc */
+            overflow: hidden;
+            /* Ẩn thanh cuộn */
+        }
+        .bg-video {
+            /* Video nền toàn màn hình */
+            position: fixed;
+            /* Cố định vị trí */
+            top: 0;
+            /* Sát mép trên */
+            left: 0;
+            /* Sát mép trái */
+            width: 100%;
+            /* Chiếm toàn bộ chiều rộng */
+            height: 100%;
+            /* Chiếm toàn bộ chiều cao */
+            object-fit: cover;
+            /* Cắt video vừa khung không méo */
+            z-index: -1;
+            /* Đẩy video xuống dưới nội dung */
         }
         .container {
             /* Khối bao ngoài toàn bộ nội dung */
@@ -46,6 +59,14 @@
             /* Căn giữa toàn bộ chữ bên trong */
             padding: 40px 20px;
             /* Khoảng cách lề trong */
+            position: absolute;
+            /* Định vị tuyệt đối */
+            top: 50%;
+            /* Đặt tại giữa màn hình dọc */
+            left: 50%;
+            /* Đặt tại giữa màn hình ngang */
+            transform: translate(-50%, -50%);
+            /* Dịch ngược để căn chính xác tâm */
         }
         .click-title {
             /* Tiêu đề CLICK chính giữa */
@@ -133,15 +154,6 @@
             margin-bottom: 5px;
             /* Khoảng cách dưới */
         }
-        .username {
-            /* Tên người dùng */
-            font-size: 16px;
-            /* Cỡ chữ vừa */
-            color: #aaaaaa;
-            /* Màu xám nhạt */
-            margin-bottom: 25px;
-            /* Khoảng cách dưới */
-        }
         .social-links {
             /* Khối chứa các biểu tượng mạng xã hội */
             display: flex;
@@ -150,6 +162,8 @@
             /* Căn giữa ngang */
             gap: 20px;
             /* Khoảng cách giữa các biểu tượng */
+            margin-top: 30px;
+            /* Khoảng cách trên */
             margin-bottom: 30px;
             /* Khoảng cách dưới */
         }
@@ -182,15 +196,6 @@
             /* Khi rê chuột */
             transform: scale(1.15);
             /* Phóng to */
-        }
-        .view-count {
-            /* Khối đếm lượt xem */
-            color: #ffffff;
-            /* Màu chữ trắng */
-            font-size: 16px;
-            /* Cỡ chữ vừa */
-            margin-bottom: 30px;
-            /* Khoảng cách dưới */
         }
         .music-player {
             /* Khung phát nhạc */
@@ -277,6 +282,14 @@
 </head>
 <body>
     <!-- Phần thân tài liệu -->
+
+    <video class="bg-video" autoplay muted loop playsinline>
+        <!-- Video nền tự động phát, tắt tiếng, lặp vô hạn -->
+        <source src="https://www.image2url.com/r2/default/videos/1790688650261-9e63fd8b-d632-4d2b-8892-b92af21d6fb0.mp4" type="video/mp4">
+        <!-- Nguồn video MP4 -->
+    </video>
+    <!-- Kết thúc video nền -->
+
     <div class="container">
         <!-- Khối bao ngoài toàn bộ nội dung -->
 
@@ -294,16 +307,13 @@
 
             <div class="avatar-frame">
                 <!-- Khung ảnh đại diện -->
-                <img src="https://i.ibb.co/9HyfYDnQ/your-image.jpg" alt="avatar">
-                <!-- Ảnh đại diện, thay link trực tiếp vào src -->
+                <img src="https://www.image2url.com/r2/default/gifs/1790687929591-12aa3bfd-c631-4c03-a86d-5a375dd928b2.gif" alt="avatar">
+                <!-- Ảnh GIF đại diện -->
             </div>
             <!-- Kết thúc khung ảnh -->
 
-            <h2 class="name">Alx</h2>
+            <h2 class="name">haru</h2>
             <!-- Tên hiển thị -->
-
-            <p class="username">🇻🇳 zens_kien</p>
-            <!-- Tên người dùng kèm cờ Việt Nam -->
 
             <div class="social-links">
                 <!-- Khối biểu tượng mạng xã hội -->
@@ -316,13 +326,10 @@
             </div>
             <!-- Kết thúc khối mạng xã hội -->
 
-            <p class="view-count">👁 5</p>
-            <!-- Lượt xem -->
-
             <div class="music-player">
                 <!-- Khung phát nhạc -->
-                <img src="https://i.ibb.co/9HyfYDnQ/your-image.jpg" alt="cover">
-                <!-- Ảnh bìa nhạc, thay link trực tiếp -->
+                <img src="https://www.image2url.com/r2/default/gifs/1790687929591-12aa3bfd-c631-4c03-a86d-5a375dd928b2.gif" alt="cover">
+                <!-- Ảnh bìa nhạc -->
                 <div class="music-info">
                     <!-- Khối thông tin bài hát -->
                     <div class="music-title">Hoa nở không màu — Hoài Lâm</div>
